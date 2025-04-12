@@ -32,3 +32,5 @@ El objetivo de este proyecto es desarrollar una aplicación web que provea servi
 | POST    | `/api/personas`             | Agregar una nueva persona |
 | GET     | `/api/personas/salario/promedio` | Obtener el salario promedio (XML) |
 | GET     | `/api/personas/salario/total` | Obtener la suma total de salarios (JSON) |
+
+
