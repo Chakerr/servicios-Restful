@@ -30,8 +30,6 @@ Este proyecto es una aplicación web desarrollada en Java EE que implementa serv
   Retorna el salario promedio (XML).
 - `GET /persona/sumaSalarios`  
   Retorna la suma de los salarios (JSON).
-- `POST /persona`  
-  Agrega una nueva persona a la lista (JSON).
 
 ## Rutas REST (EndPoints)
 | Método | URL                                                              | Formato | Descripción                             |
