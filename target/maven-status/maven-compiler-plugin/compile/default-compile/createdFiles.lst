@@ -1,3 +1,2 @@
-com\mycompany\testws\entidad\Person.class
-com\mycompany\testws\entidad\Salario.class
-com\mycompany\testws\services\Service.class
+com\unipiloto\ws\model\Persona.class
+com\unipiloto\ws\services\PersonaService.class

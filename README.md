@@ -1,36 +1,58 @@
 # README - Aplicación Web con Servicios REST
 
-## Descripción 
-Esta aplicación web está diseñada para demostrar la implementación de servicios RESTful en Java utilizando Jersey. Se han agregado nuevas funcionalidades para mejorar el manejo de datos de personas y sus salarios. Se incluyen cálculos automáticos de salarios, consulta del salario promedio en formato XML y la suma total de los salarios en formato JSON. El proyecto permite entender el uso de anotaciones REST y la integración con GlassFish como servidor de aplicaciones.
+## Descripción
+Este proyecto es una aplicación web desarrollada en Java EE que implementa servicios RESTful utilizando el framework **Jersey**. Fue construido con **NetBeans 8.0.2**, **GlassFish Server 4.1** y **Maven**. Los servicios están centrados en el manejo de datos de personas y el cálculo de salarios basados en la edad.
 
 ## Objetivo
-El objetivo de este proyecto es desarrollar una aplicación web que provea servicios REST utilizando el API Jersey. Durante el desarrollo, se aplicará el uso de anotaciones REST y se implementarán servicios adicionales a partir de un tutorial base.
+- Entender y aplicar las anotaciones REST (@GET, @POST, @Path, etc.)
+- Usar Jersey como API para implementar servicios REST
+- Construir servicios que retornen resultados en **JSON** y **XML**
+- Desplegar servicios REST sobre GlassFish usando Maven
 
 ## Tecnologías Utilizadas
-- **Java** - Lenguaje de programación principal.
-- **Maven** - Administrador de dependencias y compilación del proyecto.
-- **GlassFish** - Servidor de aplicaciones para desplegar los servicios REST.
-- **NetBeans (versión 8.#)** - Entorno de desarrollo recomendado.
-- **Jersey API** - Framework para el desarrollo de servicios REST en Java.
+- Java EE 7
+- Jersey 1.13
+- Maven
+- GlassFish 4.1
+- NetBeans 8.0.2
+- Postman (para pruebas REST)
 
-## Características del Proyecto
-- **Gestor de personas:** Se mantiene una lista de personas con datos como nombre, edad y salario calculado automáticamente.
-- **Cálculo de salarios:** Se agrega un atributo `salario` en la clase `Persona`, con la siguiente fórmula:
-  - `Salario = (Edad * Salario_Minimo_) / 3`
-- **Servicios REST implementados:**
-  1. Obtener la lista de todas las personas.
-  2. Obtener el salario promedio en formato **XML**.
-  3. Obtener la suma de los salarios en formato **JSON**.
-  4. Agregar una nueva persona a la lista.
-  5. Obtener información de una persona específica mediante su ID.
+## Funcionalidades
 
-## API REST - Endpoints
-| Método | URL                          | Descripción |
-|---------|-----------------------------|-------------|
-| GET     | `/api/personas`             | Obtener lista de personas |
-| GET     | `/api/personas/{id}`        | Obtener persona por ID |
-| POST    | `/api/personas`             | Agregar una nueva persona |
-| GET     | `/api/personas/salario/promedio` | Obtener el salario promedio (XML) |
-| GET     | `/api/personas/salario/total` | Obtener la suma total de salarios (JSON) |
+### Modelo: `Persona`
+- Atributos: `id`, `nombre`, `edad`
+- Atributo calculado: `salario = edad * SALARIO_MINIMO / 3`
 
+### Servicios REST (`PersonaService`)
+- `GET /persona`  
+  Retorna la lista de personas en JSON o XML.
+- `GET /persona/salarioPromedio`  
+  Retorna el salario promedio (XML).
+- `GET /persona/sumaSalarios`  
+  Retorna la suma de los salarios (JSON).
+- `POST /persona`  
+  Agrega una nueva persona a la lista (JSON).
 
+## Rutas REST (EndPoints)
+| Método | URL                                                              | Formato | Descripción                             |
+|--------|------------------------------------------------------------------|---------|-----------------------------------------|
+| GET    | `/RestPersonService/webresources/persona`                       | JSON/XML | Lista todas las personas                |
+| GET    | `/RestPersonService/webresources/persona/salarioPromedio`       | XML     | Retorna el salario promedio             |
+| GET    | `/RestPersonService/webresources/persona/sumaSalarios`          | JSON    | Retorna la suma total de los salarios   |
+| POST   | `/RestPersonService/webresources/persona`                       | JSON    | Agrega una nueva persona                |
+
+### Ejemplo JSON para POST (Postman):
+```json
+{
+  "id": 4,
+  "nombre": "Laura",
+  "edad": 35
+}
+```
+
+## Cómo Ejecutar
+1. Abrir en NetBeans 8.0.2
+2. Ejecutar sobre GlassFish Server 4.1
+3. Usar navegador o Postman para probar los endpoints
+
+---
