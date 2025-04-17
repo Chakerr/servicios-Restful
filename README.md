@@ -39,15 +39,6 @@ Este proyecto es una aplicación web desarrollada en Java EE que implementa serv
 | GET    | `/RestPersonService/webresources/persona`                       | JSON/XML | Lista todas las personas                |
 | GET    | `/RestPersonService/webresources/persona/salarioPromedio`       | XML     | Retorna el salario promedio             |
 | GET    | `/RestPersonService/webresources/persona/sumaSalarios`          | JSON    | Retorna la suma total de los salarios   |
-| POST   | `/RestPersonService/webresources/persona`                       | JSON    | Agrega una nueva persona                |
-
-### Ejemplo JSON para POST (Postman):
-```json
-{
-  "id": 4,
-  "nombre": "Laura",
-  "edad": 35
-}
 ```
 
 ## Cómo Ejecutar
